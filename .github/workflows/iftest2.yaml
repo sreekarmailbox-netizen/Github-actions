@@ -1,15 +1,22 @@
-name: test-if
+name: build & deploy
 on: 
   push:
     branches:
       - main
-      - test
+  pull_request:
+    types:
+      - opened
+      - synchronize
 jobs:
-  test:
+  build:
     runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request'
     steps:
-      - name: run if main branch push
-        if: github.ref_name =='main'
-        run: echo "this is main"
-      - name: run this step
-        run: echo "this is manual"
+      - name: build step
+        run: echo "building the application"
+  deploy:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push' && github.ref_name == 'main'
+    steps:
+      - name: deploy step
+        run: echo "app is deploying"
