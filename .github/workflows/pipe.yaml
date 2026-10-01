@@ -1,0 +1,13 @@
+name: test-work
+on: workflow_dispatch
+jobs:
+  job-1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: system-info
+        run: |
+          echo " this is first line"
+          echo " this is second line"
+          date
+          hostname
+          free -m
