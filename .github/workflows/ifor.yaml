@@ -1,0 +1,9 @@
+name: 
+on: push
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: run if or
+        if: github.actor == 'hemanth' || github.actor  == 'ddevsec-blip'
+        run: echo "triggered"
