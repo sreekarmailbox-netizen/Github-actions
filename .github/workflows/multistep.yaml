@@ -4,18 +4,15 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
+  build-test-deploy:
     runs-on: ubuntu-latest
+
     steps:
       - name: Build step
         run: echo "Running building ...."
 
-  test:
-    steps:
       - name: Test phase
         run: echo "Running test cases...."
 
-  deploy:
-    steps:
       - name: Deploy the app
         run: echo "App deployed"
